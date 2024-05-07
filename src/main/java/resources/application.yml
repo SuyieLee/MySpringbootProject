@@ -30,7 +30,7 @@ mybatis-plus:
 #  mybatis-plus.global-config.db-config.logic-not-delete-value=0
 
 server:
-  port: 8085
+  port: 8081
 
 mao:
   jwt:

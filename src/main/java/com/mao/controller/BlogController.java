@@ -29,6 +29,7 @@ import java.util.Date;
  */
 @RestController
 @Api(tags = "博客管理模块")
+//@CrossOrigin(origins = "https://localhost:8080",maxAge = 3600)
 public class BlogController {
     @Autowired
     BlogService blogService;

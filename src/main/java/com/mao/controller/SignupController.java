@@ -15,6 +15,7 @@ import java.io.File;
 
 //@RestController
 //@Api(tags = "注册模块")
+//@CrossOrigin(origins = "https://localhost:8080",maxAge = 3600)
 //public class SignupController {
 //
 //    @Autowired

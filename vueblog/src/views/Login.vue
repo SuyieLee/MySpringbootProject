@@ -5,7 +5,7 @@
   <el-container>
     <el-header height="380px">
       <!-- width="1500" -->
-      <img class="mlogo" src="../assets/mOMo3.png" alt="" >
+      <img class="mlogo" src="../assets/logo.png" alt="" >
     </el-header>
     <el-main class="login-main">
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px"
@@ -64,7 +64,7 @@ export default {
         if (valid) {
           const _this = this  //定义一个全局整个vue项目的this
           // 提交逻辑   .then((res)=>发起请求后的得到的一个结果
-          this.$axios.post('http://47.93.20.204:8085/login', this.ruleForm).then((res)=>{
+          this.$axios.post('http://localhost:8085/login', this.ruleForm).then((res)=>{
             // this 代表这个请求的this; _this代表全局请求的this
             const token = res.headers['authorization']
             const useInfo=res.data.data
@@ -89,8 +89,8 @@ export default {
   },
   mounted() {
     this.$notify({
-      title: '看这里：',
-      message: '关注CSDN：毛_三月，回复【vueblog】，领取项目资料与源码',
+      title: '欢迎',
+      message: '欢迎欢迎～',
       duration: 1500
     });
   }

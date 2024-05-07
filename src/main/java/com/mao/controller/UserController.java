@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 @Api(tags = "测试模块")
+//@CrossOrigin(origins = "https://localhost:8080",maxAge = 3600)
 public class UserController {
     @Autowired
     UserService userService;

@@ -2,7 +2,7 @@ import axios from 'axios'
 import Element from "element-ui";
 import store from "./store";
 import router from "./router";
-axios.defaults.baseURL='http://47.93.20.204:8085'
+axios.defaults.baseURL='http://localhost:8081'
 /**
  * 点击登录按钮发起登录请求，成功时候返回了数据，
  * 如果是密码错误，也应该弹窗消息提示。

@@ -4,7 +4,7 @@
         <div class="front">
             <div class="menu">
                 <i class="el-icon-s-home" @click="hide()"></i>
-                <span>胡超の万事屋</span>
+                <span>万事屋</span>
             </div>
         </div>
         <div class="down">
