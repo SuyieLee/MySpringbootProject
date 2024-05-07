@@ -16,14 +16,6 @@ import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author Author: @Hu_Chao
- * @since 2021-08-19
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

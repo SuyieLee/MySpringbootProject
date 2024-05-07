@@ -46,7 +46,6 @@ public class BlogController {
      * import com.baomidou.mybatisplus.core.metadata.IPage;
      * import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
      * orderByDesc 倒序
-     *
      * 没有添加@RequiresAuthentication的接口都可以公开进行访问
      * */
     @ApiOperation("分页接口")
@@ -55,7 +54,7 @@ public class BlogController {
     public Result list(@RequestParam(defaultValue = "1") Integer currentPage){
 //        if (currentPage==null || currentPage<1) currentPage=1;
         Page page = new Page(currentPage,5);
-        IPage pageDate= blogService.page(page,new QueryWrapper<Blog>().orderByDesc("created"));
+        IPage pageDate= blogService.page(page, new QueryWrapper<Blog>().orderByDesc("created"));
         return Result.succ(pageDate);
     }
 
@@ -88,7 +87,7 @@ public class BlogController {
             temp=blogService.getById(blog.getId());  //从数据库里查出这篇文章，然后进行更新  赋给temp这个对象
             // 只能编辑自己的文章
             System.out.println(ShiroUtil.getProfile().getId());
-            Assert.isTrue(temp.getUserId()== ShiroUtil.getProfile().getId(),"没有编辑权限");
+            Assert.isTrue(temp.getUserId() == ShiroUtil.getProfile().getId(),"没有编辑权限");
         }else {
             temp=new Blog();
             temp.setUserId(ShiroUtil.getProfile().getId());
@@ -108,14 +107,15 @@ public class BlogController {
 //  @RequestMapping(method = HttpMethod.DELETE)
     public Result deleteBlog(Long id) {
         int count = blogService.deleteBlog(id);
-//        if (count > 0) {
-//            return Result.succ();
-//        } else if (count == -1) {
-//            return Result.fail("error：权限不够");
-//        } else {
-//            return Result.fail("修改失败");
-//        }
-        return Result.succ("删除成功");
+        System.out.println(count);
+        if (count > 0) {
+            return Result.succ();
+        } else if (count == -1) {
+            return Result.fail("error：权限不够");
+        } else {
+            return Result.fail("修改失败");
+        }
+//        return Result.succ("删除成功");
     }
 
 

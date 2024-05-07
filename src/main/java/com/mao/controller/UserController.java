@@ -12,14 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author Author: @Hu_Chao
- * @since 2021-08-19
- */
 @RestController
 @RequestMapping("/user")
 @Api(tags = "测试模块")
@@ -28,11 +20,13 @@ public class UserController {
     UserService userService;
 
     @RequiresAuthentication     //需要进行一个认证才能进行访问
+
 //    @GetMapping("/index/{id}")
 //    public Result test(@PathVariable("id") Long id) {
 //        User user = userService.getById(1L);
 //        return Result.succ(user);
 //    }
+
     @ApiOperation("测试接口")
     @GetMapping("/index")
     public Result index() {
