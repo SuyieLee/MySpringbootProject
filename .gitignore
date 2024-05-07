@@ -1,0 +1,66 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### zip ###
+*.zip
+
+### vueblog ###
+.DS_Store
+/vueblog/node_modules
+/vueblog/dist
+
+
+# local env files
+/vueblog/.env.local
+/vueblog/.env.*.local
+
+# Log files
+/vueblog/npm-debug.log*
+/vueblog/yarn-debug.log*
+/vueblog/yarn-error.log*
+/vueblog/pnpm-debug.log*
+
+# Editor directories and files
+/vueblog/.idea
+/vueblog/.vscode
+/vueblog/*.suo
+/vueblog/*.ntvs*
+/vueblog/*.njsproj
+/vueblog/*.sln
+/vueblog/*.sw?

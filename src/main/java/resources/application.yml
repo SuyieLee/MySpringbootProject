@@ -1,0 +1,41 @@
+# DataSource Config
+spring:
+  mail:
+    username: 2557523039@qq.com
+    password: odlnoqjxdbmbdjgb
+    host: smip.qq.com
+    port: 587
+    properties.mail.smtp.auth: true
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    default-encoding: UTF-8
+
+#    除了配置数据库的信息，还配置了myabtis plus的mapper的xml文件的扫描路径
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  # 配置日志
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置逻辑删除
+  global-config:
+    db-config:
+      logic-delete-field: status  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+#  # 配置日志
+#  mybatis-plus.configuration.log-impl=org.apache.ibatis.logging.stdout.StdOutImpl
+#  # 配置逻辑删除
+#  mybatis-plus.global-config.db-config.logic-delete-value=1
+#  mybatis-plus.global-config.db-config.logic-not-delete-value=0
+
+server:
+  port: 8085
+
+mao:
+  jwt:
+    # 加密秘钥
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+    # token有效时长，7天，单位 秒
+    expire: 604800
+    header: Authorization
