@@ -64,7 +64,7 @@ export default {
         if (valid) {
           const _this = this  //定义一个全局整个vue项目的this
           // 提交逻辑   .then((res)=>发起请求后的得到的一个结果
-          this.$axios.post('http://localhost:8085/login', this.ruleForm).then((res)=>{
+          this.$axios.post('http://localhost:8081/login', this.ruleForm).then((res)=>{
             // this 代表这个请求的this; _this代表全局请求的this
             const token = res.headers['authorization']
             const useInfo=res.data.data
