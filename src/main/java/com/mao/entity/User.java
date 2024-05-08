@@ -14,15 +14,6 @@ import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author Author: @Hu_Chao
- * @since 2021-08-19
- * 后端我们可以使用Hibernate validatior来做校验
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)

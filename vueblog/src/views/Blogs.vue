@@ -4,7 +4,7 @@
     <div class="front">
       <div class="menu">
         <i class="el-icon-s-home" @click="hide()"></i>
-        <span>万事屋</span>
+        <span>学习永无止境</span>
       </div>
     </div>
     <div class="down">
@@ -14,9 +14,9 @@
       <div class="center">
         <mainBlogs/>
       </div>
-      <div class="right">
-        <calendor/>
-      </div>
+<!--      <div class="right">-->
+<!--        <calendor/>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
@@ -28,7 +28,7 @@ import slideBar from "@/components/slideBar"
 import calendor from '@/components/calendor'
 export default {
   name: "Blogs.vue",
-  components: {slideBar,calendor,mainBlogs,BlogDetail},
+  components: {slideBar,mainBlogs,BlogDetail},
   computed:{
     isShow(){
       return this.$store.getters.getIsShow
@@ -73,7 +73,7 @@ export default {
   font-size: 20px;
   font-weight: 600;
   color:#fcf2f2;
-  margin-left:8px;
+  margin-left:15px;
   margin-top: 10px;
 }
 .down{
@@ -89,7 +89,7 @@ export default {
   left:0;
   position: fixed; 
   height:100%;
-  width:11%;
+  width:14%;
   flex-grow:1;
   background:#fdf6ec;
   z-index:10;

@@ -1,6 +1,6 @@
 <template>
   <div class="m-content">
-    <h1 class="head-title">欢迎来到@HuChao的博客</h1>
+    <h1 class="head-title">欢迎来到进入学习屋</h1>
     <div class="block">
       <el-avatar :size="50" :src="user.avatar"></el-avatar>
       <div class="username">{{user.username}}</div>
@@ -10,7 +10,11 @@
         </span>
         <el-divider direction="vertical"></el-divider>
         <span>
-           <el-link type="success" href="/blog/add">发表博客</el-link>
+           <el-link type="success" href="/blog/add">发表</el-link>
+        </span>
+        <el-divider direction="vertical"></el-divider>
+        <span>
+           <el-link type="success" href="/blog/upload">上传</el-link>
         </span>
           <el-divider direction="vertical"></el-divider>
         <span v-show="!hasLogin">

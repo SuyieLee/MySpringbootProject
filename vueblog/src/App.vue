@@ -2,6 +2,10 @@
   <div id="app">
     <router-view/>
     <Footer />
+<!--    <nav>-->
+<!--      <router-link to="/">登录</router-link> |-->
+<!--      <router-link to="/blogs">注册</router-link>-->
+<!--    </nav>-->
 <!--vue是单页面  改变路由刷新的知识路由里的数据-->
 <!--路由界面 /Home界面展示到router-view里面-->
   </div>

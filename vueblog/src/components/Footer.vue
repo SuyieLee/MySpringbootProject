@@ -5,20 +5,20 @@
                 ><div class="grid-content bg-purple-dark footer">
                    <ul class="friends-link">
                        <li>
-                           <a href="https://blog.csdn.net/m0_47214030?spm=1000.2115.3001.5343">☆往事随風☆</a>
+                           <a href="#">呜呜呜</a>
                        </li>
                        <li>
-                           <a href="#">河南科技学院</a>
+                           <a href="#">啦啦啦</a>
                        </li>
                        <li>
-                           <a href="#">三月</a>
+                           <a href="#">哈哈哈</a>
                        </li>
                        <li>
-                           <a href="#">其他</a>
+                           <a href="#">嘻嘻嘻</a>
                        </li>
                        
                    </ul>
-                    <h2 class="compony">&copy;·HuChao版权所有</h2>
+                    <h2 class="compony">哔哔哔</h2>
                 </div
             ></el-col>
         </el-row>

@@ -42,9 +42,9 @@
                 <Release />
                 <Commit />
             </div>
-            <div class="right">
-                <calendor />
-            </div>
+<!--            <div class="right">-->
+<!--                <calendor />-->
+<!--            </div>-->
         </div>
     </div>
 </template>
@@ -58,7 +58,7 @@ import Commit from "../components/Commit.vue";
 import Release from "../components/Release.vue"
 export default {
     name: "BlogDetail",
-    components: { Header, slideBar, calendor, Commit,Release },
+    components: { Header, slideBar, Commit,Release },
     data() {
         return {
             blog: {

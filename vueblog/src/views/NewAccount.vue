@@ -1,7 +1,6 @@
 <!--（登录页面）-->
 <template>
 <!--  template下面只能有一个div-->
- <div>
   <el-container>
     <el-header height="380px">
       <!-- width="1500" -->
@@ -18,20 +17,22 @@
 <!--          双向绑定ruleform==》password  -->
           <el-input type="password" v-model="ruleForm.password" autocomplete="off"></el-input>
         </el-form-item>
+<!--        <el-form-item label="邮箱" prop="password">-->
+<!--          &lt;!&ndash;          双向绑定ruleform==》password  &ndash;&gt;-->
+<!--          <el-input type="email" v-model="ruleForm.password" autocomplete="off"></el-input>-->
+<!--        </el-form-item>-->
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
-          <el-button @click="newForm('ruleForm')">注册</el-button>
+          <el-button type="primary" @click="newForm('ruleForm')">注册</el-button>
         </el-form-item>
       </el-form>
     </el-main>
   </el-container>
- </div>
 </template>
 
 <script>
 export default {
-  name: "Login.vue",
+  name: "NewAccount.vue",
   data() {
     var validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -57,38 +58,23 @@ export default {
     };
   },
   methods: {
-    submitForm(formName) {
-
-      // const _this = this  //定义一个全局整个vue项目的this
-      this.$refs[formName].validate((valid) => {
-        if (valid) {
-          const _this = this  //定义一个全局整个vue项目的this
-          // 提交逻辑   .then((res)=>发起请求后的得到的一个结果
-          this.$axios.post('http://localhost:8081/login', this.ruleForm).then((res)=>{
-            // this 代表这个请求的this; _this代表全局请求的this
-            const token = res.headers['authorization']
-            const useInfo=res.data.data
-
-            _this.$store.commit('SET_TOKEN', token)  //jwt token数据存储在localstorage里
-            // console.log(res,"111111111111111111")
-            _this.$store.commit('SET_USERINFO', useInfo)
-            //跳转登录到blogs页面
-            _this.$router.push("/blogs")
-          })
-        } else {
-          console.log('error submit!!');
-          return false;
-        }
-      });
-    },
     resetForm(formName) {
       this.$refs[formName].resetFields();
       this.ruleForm.username=null;
       this.ruleForm.password=null;
     },
-    newForm() {
-      const _this = this  //定义一个全局整个vue项目的this
-      _this.$router.push("/newaccount")
+    newForm(formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          const _this = this  //定义一个全局整个vue项目的this
+          this.$axios.post('http://localhost:8081/newaccount', this.ruleForm).then((res) => {
+            _this.$router.push("/login")
+          })
+        }else {
+          console.log('error account!!');
+          return false;
+        }
+      });
     },
   },
   mounted() {

@@ -1,5 +1,6 @@
 package com.mao.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -8,6 +9,7 @@ import com.mao.common.lang.Result;
 import com.mao.entity.User;
 import com.mao.service.UserService;
 import com.mao.util.JwtUtils;
+import com.mao.util.ShiroUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.executable.ValidateOnExecution;
+import java.time.LocalDateTime;
 
 @RestController
 @Api(tags = "用户管理模块")
@@ -30,8 +33,6 @@ public class AccountController {
     @Autowired
     UserService userService;
     /**
-     * 默认账号密码：胡超 / 10428376
-     *
      * 只需要接受账号密码，然后把用户的id生成jwt，
      * 返回给前段，为了后续的jwt的延期，
      * 所以把jwt放在header上
@@ -79,4 +80,48 @@ public class AccountController {
         SecurityUtils.getSubject().logout();
         return Result.succ(null);
     }
+
+    /*
+    * 创建用户
+    * */
+    @ApiOperation("创建用户")
+    @PostMapping("/newaccount")
+    public Result newaccount(@Validated @RequestBody LoginDto loginDto, HttpServletResponse response){
+        User user = userService.getOne(new QueryWrapper<User>().eq("username", loginDto.getUsername()));
+        System.out.println(user);
+        if(user != null){
+            System.out.println("existed");
+            Assert.isNull(user,"用户已存在");
+        }else{
+            System.out.println("new one");
+            User newuser = new User();
+            newuser.setUsername(loginDto.getUsername()); ;
+            newuser.setPassword(SecureUtil.md5(loginDto.getPassword()));
+            newuser.setCreated(LocalDateTime.now());
+            newuser.setLastLogin(LocalDateTime.now());
+            newuser.setAvatar(null);
+            newuser.setStatus(0);
+            // 插入新用户到数据库
+            boolean isSuccess = userService.save(newuser);
+            if (isSuccess) {
+                // 插入成功，返回成功响应
+                return Result.succ("新用户创建成功");
+            } else {
+                // 插入失败，返回失败响应
+                return Result.fail("新用户创建失败");
+            }
+        }
+        return Result.succ("操作测功",null);
+    }
+
+//    /*
+//     * 修改密码
+//     * */
+//    @ApiOperation("修改密码")
+//    @RequiresAuthentication //    @RequiresAuthentication说明需要登录之后才能访问的接口
+//    @PostMapping("/chuangepassword")
+//    public Result chuangepassword(@Validated @RequestBody LoginDto loginDto, HttpServletResponse response){
+//
+//        return Result.succ(null);
+//    }
 }

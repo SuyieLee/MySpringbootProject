@@ -14,14 +14,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author Author: @Hu_Chao
- * @since 2021-08-19
- */
 @Service
 @RequiredArgsConstructor
 public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements BlogService {

@@ -1,7 +1,7 @@
 <template>
   <div class="calendor">
     <div class="title">
-      <el-avatar src="https://z3.ax1x.com/2021/08/31/hdu3a6.jpg" ></el-avatar>
+      <el-avatar src="" ></el-avatar>
       <h4>博主信息</h4>
       <el-divider><i class="el-icon-user-solid"></i></el-divider>
     </div>
