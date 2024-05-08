@@ -4,7 +4,7 @@ import Login from '../views/Login.vue'
 // import Blogs from '../views/Blogs.vue'
 import BlogEdit from '../views/BlogEdit.vue'
 import BlogDetail from '../views/BlogDetail.vue'
-import FileAdd from '../views/FileAdd.vue'
+// import FileAdd from '../views/FileAdd.vue'
 
 
 Vue.use(VueRouter)
@@ -45,14 +45,14 @@ const routes = [
     component: BlogEdit //每次路由之前（router.beforeEach）判断token的状态，觉得是否需要跳转到登录页面
   },
   //  增：上传博客
-  {
-    path: '/blog/upload', // 注意放在 path: '/blog/:blogId'之前
-    name: 'BlogUpload',
-    meta: {
-      requireAuth: true   //添加路由权限
-    },
-    component: FileAdd //每次路由之前（router.beforeEach）判断token的状态，觉得是否需要跳转到登录页面
-  },
+  // {
+  //   path: '/blog/upload', // 注意放在 path: '/blog/:blogId'之前
+  //   name: 'BlogUpload',
+  //   meta: {
+  //     requireAuth: true   //添加路由权限
+  //   },
+  //   component: FileAdd //每次路由之前（router.beforeEach）判断token的状态，觉得是否需要跳转到登录页面
+  // },
   //点击 进入对应文章界面
   {
     path: '/blog/:blogId',

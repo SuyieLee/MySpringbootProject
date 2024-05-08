@@ -15,7 +15,7 @@
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="submitForm()">立即发表</el-button>
-          <el-button>取消</el-button>
+          <el-button @click="backForm()">取消</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -81,6 +81,10 @@ export default {
           return false;
         }
       })
+    },
+    backForm(){
+      const _this = this
+      _this.$router.push("/blogs")
     }
   }
 }
