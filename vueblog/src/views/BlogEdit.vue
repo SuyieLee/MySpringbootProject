@@ -3,7 +3,7 @@
   <div>
     <Header></Header>
     <div class="m-content">
-      <el-form ref="editForm" status-icon :model="editForm" :rules="rules" label-width="80px">
+      <el-form ref="editForm" status-icon :model="editForm" :rules="rules" label-width="50px">
         <el-form-item label="标题" prop="title">
           <el-input v-model="editForm.title"></el-input>
         </el-form-item>
